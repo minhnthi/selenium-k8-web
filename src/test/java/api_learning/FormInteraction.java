@@ -20,7 +20,7 @@ public class FormInteraction {
             By passwordSel = By.cssSelector("#password");
             By loginBtnSel = By.cssSelector("[type='submit']");
 
-            // 2. Find elements
+            // Find elements
             WebElement usernameElem = driver.findElement(usernameSel);
             WebElement passwordElem = driver.findElement(passwordSel);
             WebElement loginBtnElem = driver.findElement(loginBtnSel);
