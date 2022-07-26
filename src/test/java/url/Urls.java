@@ -7,4 +7,6 @@ public interface Urls {
     String iframeSlug ="/iframe";
     String hoverSlug ="/hovers";
     String alertsSlug ="/javascript_alerts";
+
+    String loginSlug ="/login";
 }
