@@ -9,4 +9,5 @@ public interface Urls {
     String alertsSlug ="/javascript_alerts";
     String loginSlug ="/login";
     String dynamicControlSlug ="/dynamic_controls";
+    String jsExecutorSlug ="/floating_menu";
 }
