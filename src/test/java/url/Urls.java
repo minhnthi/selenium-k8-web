@@ -3,6 +3,8 @@ package url;
 public interface Urls {
 
     String baseUrl ="https://the-internet.herokuapp.com";
+
+    String demoBaseUrl ="http://demowebshop.tricentis.com";
     String dropDownSlug ="/dropdown";
     String iframeSlug ="/iframe";
     String hoverSlug ="/hovers";
