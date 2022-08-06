@@ -11,11 +11,16 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import support.verification.Verifier;
+import test_flows.global.FooterTestFlow;
 import url.Urls;
 
 public class FooterTest {
     @Test(priority = 1, dependsOnMethods = {"testFooterRegisterPage"})
     public void testFooterCategoryPage() {
+        WebDriver driver = DriverFactory.getChromeDriver();
+        driver.get(Urls.demoBaseUrl);
+        FooterTestFlow footerTestFlow= new FooterTestFlow(driver);
+        footerTestFlow.verifyFooterComponent();
     }
 
     @Test(priority = 2)
