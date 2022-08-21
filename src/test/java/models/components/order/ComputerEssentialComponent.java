@@ -18,6 +18,14 @@ public abstract class ComputerEssentialComponent extends FooterColumnComponent {
 
     public abstract String selectRAMType(String type);
 
+    public String selectHDD(String type) {
+        return selectCompOption(type);
+    }
+
+    public String selectOS(String type) {
+        return selectCompOption(type);
+    }
+
     protected String selectCompOption(String type) {
         String selectorStr = "//label[contains(text(),\"" + type + "\")]";
         By optionSel = By.xpath(selectorStr);
@@ -31,7 +39,7 @@ public abstract class ComputerEssentialComponent extends FooterColumnComponent {
             optionElem.click();
             return optionElem.getText();
         } else {
-            throw  new RuntimeException("The option: "+ type + " is not existing to select!");
+            throw new RuntimeException("The option: " + type + " is not existing to select!");
         }
     }
 }

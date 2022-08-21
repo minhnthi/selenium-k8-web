@@ -1,3 +1,0 @@
-"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"failed","Fri Aug 19 15:18:14 ICT 2022","Fri Aug 19 15:18:17 ICT 2022","3315","Regression Test","Global UI","test.global.footer.FooterTest","test.global.footer.FooterTest","testFooterCategoryPage","testFooterCategoryPage",""
-"passed","Fri Aug 19 15:18:17 ICT 2022","Fri Aug 19 15:18:20 ICT 2022","2235","Regression Test","Global UI","test.global.footer.FooterTest","test.global.footer.FooterTest","testFooterHomePage","testFooterHomePage",""
