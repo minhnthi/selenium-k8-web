@@ -8,8 +8,9 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-public abstract class ComputerEssentialComponent extends FooterColumnComponent {
+public abstract class ComputerEssentialComponent extends BaseItemDetailsComponent {
 
+    private final static By allOptionsSel = By.cssSelector(".option-list input");
     public ComputerEssentialComponent(WebDriver driver, WebElement component) {
         super(driver, component);
     }
@@ -18,11 +19,23 @@ public abstract class ComputerEssentialComponent extends FooterColumnComponent {
 
     public abstract String selectRAMType(String type);
 
+    public void unselectDefaultOptions(){
+        List<WebElement> allOptionsElem = component.findElements(allOptionsSel);
+        allOptionsElem.forEach(option ->{
+            if (option.getAttribute("checked")!= null){
+                option.click();
+            }
+        });
+    }
+
     public String selectHDD(String type) {
         return selectCompOption(type);
     }
 
     public String selectOS(String type) {
+        return selectCompOption(type);
+    }
+    public String selectSoftware(String type) {
         return selectCompOption(type);
     }
 
@@ -32,9 +45,7 @@ public abstract class ComputerEssentialComponent extends FooterColumnComponent {
         WebElement optionElem = null;
         try {
             optionElem = component.findElement(optionSel);
-        } catch (Exception ignored) {
-
-        }
+        } catch (Exception ignored) {}
         if (optionElem != null) {
             optionElem.click();
             return optionElem.getText();

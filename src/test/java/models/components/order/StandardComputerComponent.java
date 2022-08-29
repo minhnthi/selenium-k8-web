@@ -12,7 +12,6 @@ import java.util.List;
 public class StandardComputerComponent extends ComputerEssentialComponent {
 
     private static final By productAttributeSel = By.cssSelector("select[id^=\"product_attribute\"]");
-
     public StandardComputerComponent(WebDriver driver, WebElement component) {
         super(driver, component);
     }
@@ -27,7 +26,7 @@ public class StandardComputerComponent extends ComputerEssentialComponent {
 
     @Override
     public String selectRAMType(String type) {
-        final int RAM_DROPDOWN_INDEX = 0;
+        final int RAM_DROPDOWN_INDEX = 1;
         WebElement ramDropdownElem =
                 component.findElements(productAttributeSel).get(RAM_DROPDOWN_INDEX);
         return selectOption(ramDropdownElem, type);
@@ -40,7 +39,7 @@ public class StandardComputerComponent extends ComputerEssentialComponent {
 
         for (WebElement option : allOptions) {
             String currentOptionText = option.getText();
-            String optionTextWithoutSpaces = currentOptionText.trim().replace(" ", " ");
+            String optionTextWithoutSpaces = currentOptionText.trim().replace(" ", "");
             if (optionTextWithoutSpaces.startsWith(type)) {
                 fullStrOption = currentOptionText;
                 break;
