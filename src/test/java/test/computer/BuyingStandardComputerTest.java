@@ -21,6 +21,7 @@ public class BuyingStandardComputerTest extends BaseTest implements Urls {
 
         orderComputerFlow.buildCompSpecAndAddToCart();
         orderComputerFlow.verifyShoppingCartPage();
+        orderComputerFlow.agreeTOSAndCheckout();
     }
     @DataProvider
     public ComputerData[] computerData() {
