@@ -2,6 +2,7 @@ package test.computer;
 
 import models.components.order.CheapComputerComponent;
 import models.components.order.StandardComputerComponent;
+import org.openqa.selenium.WebDriver;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import test.BaseTest;
@@ -16,8 +17,10 @@ public class BuyingStandardComputerTest extends BaseTest implements Urls {
 
     @Test(dataProvider = "computerData")
     public void testStandardComputerBuying(ComputerData computerData){
-     //   driver.get(demoBaseUrl.concat("/build-your-own-computer"));
-        driver.get(demoBaseUrl.concat("/build-your-own-computer"));
+
+     //   getDriver().get(demoBaseUrl.concat("/build-your-own-computer"));
+        WebDriver driver = getDriver();
+        getDriver().get(demoBaseUrl.concat("/build-your-own-computer"));
         OrderComputerFlow<StandardComputerComponent> orderComputerFlow =
                 new OrderComputerFlow<>(driver,StandardComputerComponent.class, computerData);
 

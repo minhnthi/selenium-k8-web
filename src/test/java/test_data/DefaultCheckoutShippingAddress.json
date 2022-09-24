@@ -1,0 +1,11 @@
+{
+  "firstname": "Shipping Firstname ",
+  "lastname": "Shipping Lastname",
+  "email": "email@email.com",
+  "country": "Canada",
+  "state": "British Columbia",
+  "city": "City",
+  "add1": "Address 1",
+  "zipCode": "800000",
+  "phoneNum": "123456789"
+}

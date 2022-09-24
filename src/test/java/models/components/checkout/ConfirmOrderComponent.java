@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 @ComponentCssSelector("#opc-confirm_order")
 public class ConfirmOrderComponent extends Component {
 
+
     private final static By confirmBtnSel = By.cssSelector(".confirm-order-next-step-button");
     public ConfirmOrderComponent(WebDriver driver, WebElement component) {
         super(driver, component);

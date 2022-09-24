@@ -15,6 +15,7 @@ import test_data.CreditCardType;
 import test_data.DataObjectBuilder;
 import test_data.PaymentMethod;
 import test_data.computer.ComputerData;
+import test_data.shipping.ShippingDataObject;
 import test_data.user.UserDataObject;
 
 import java.security.SecureRandom;
@@ -31,6 +32,7 @@ public class OrderComputerFlow<T extends ComputerEssentialComponent> {
 
     private double totalItemPrice;
     private UserDataObject defaultCheckoutUser;
+    private ShippingDataObject defaultCheckoutShippingAddress;
     private PaymentMethod paymentMethod;
     private CreditCardType creditCardType;
 
@@ -158,12 +160,24 @@ public class OrderComputerFlow<T extends ComputerEssentialComponent> {
         billingAddressComponent.inputZIPCode(defaultCheckoutUser.getZipCode());
         billingAddressComponent.inputPhoneNo(defaultCheckoutUser.getPhoneNum());
         billingAddressComponent.clickOnContinueBtn();
-
     }
 
     public void inputShippingAddress() {
+        String defaultShippingAddressJSONLoc = "/src/test/java/test_data/DefaultCheckoutShippingAddress.json";
+        defaultCheckoutShippingAddress = DataObjectBuilder.buildDataObjectFrom(defaultShippingAddressJSONLoc,ShippingDataObject.class);
         CheckoutPage checkoutPage = new CheckoutPage(driver);
-        checkoutPage.shippingAddressComponent().clickOnContinueBtn();
+        ShippingAddressComponent shippingAddressComponent = checkoutPage.shippingAddressComponent();
+        shippingAddressComponent.selectNewShippingAddress();
+        shippingAddressComponent.inputFirstName(defaultCheckoutShippingAddress.getFirstname());
+        shippingAddressComponent.inputLastName(defaultCheckoutShippingAddress.getLastname());
+        shippingAddressComponent.inputEmail(defaultCheckoutShippingAddress.getEmail());
+        shippingAddressComponent.selectCountry(defaultCheckoutShippingAddress.getCountry());
+        shippingAddressComponent.selectState(defaultCheckoutShippingAddress.getState());
+        shippingAddressComponent.inputAddress1(defaultCheckoutShippingAddress.getAdd1());
+        shippingAddressComponent.inputCity(defaultCheckoutShippingAddress.getCity());
+        shippingAddressComponent.inputZipCode(defaultCheckoutShippingAddress.getZipCode());
+        shippingAddressComponent.inputPhone(defaultCheckoutShippingAddress.getPhoneNum());
+       shippingAddressComponent.clickOnContinueBtn();
     }
 
     public void selectShippingMethod() {

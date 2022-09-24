@@ -37,10 +37,6 @@ public class Dropdown implements Urls {
             // Select by value | Option 1
             select.selectByValue("1");
             Thread.sleep(1000);
-
-
-
-
         }catch (Exception e){
             e.printStackTrace();
         }
