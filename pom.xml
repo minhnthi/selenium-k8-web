@@ -5,7 +5,6 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>sdetpro</groupId>
-    // organization name
     <artifactId>selenium-k8-web</artifactId>
     <version>1.0-SNAPSHOT</version>
     <build>
@@ -17,6 +16,38 @@
                     <source>8</source>
                     <target>8</target>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.2.1</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <filters>
+                                <filter>
+                                    <artifact>*:*</artifact>
+                                    <excludes>
+                                        <exclude>META-INF/*.SF</exclude>
+                                        <exclude>META-INF/*.DSA</exclude>
+                                        <exclude>META-INF/*.RSA</exclude>
+                                    </excludes>
+                                </filter>
+                            </filters>
+                            <shadedArtifactAttached>True</shadedArtifactAttached>
+                            <shadedClassifierName>fat-tests</shadedClassifierName>
+                            <transformers>
+                                <transformer implementation = "org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <mainClass>test.Main</mainClass>
+                                </transformer>
+                            </transformers>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
@@ -34,7 +65,7 @@
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>7.5</version>
-            <scope>test</scope>
+            <scope>compile</scope>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-testng -->

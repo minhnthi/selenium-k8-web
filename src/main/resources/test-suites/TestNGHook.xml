@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Regression Test" >
+    <test name="Global UI" >
+        <classes>
+            <class name="api_learning.testng.TestNGHook01" />
+            <class name="api_learning.testng.TestNGHook02" />
+        </classes>
+    </test>
+    <test name="Global UI 02" >
+        <classes>
+            <class name="api_learning.testng.TestNGHook01" />
+            <class name="api_learning.testng.TestNGHook02" />
+        </classes>
+    </test>
+</suite>
