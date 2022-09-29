@@ -4,7 +4,8 @@ public interface Urls {
 
     String baseUrl ="https://the-internet.herokuapp.com";
 
-    String demoBaseUrl ="http://demowebshop.tricentis.com";
+   // String demoBaseUrl ="http://demowebshop.tricentis.com";
+    String demoBaseUrl = System.getProperty("baseUrl");
     String dropDownSlug ="/dropdown";
     String iframeSlug ="/iframe";
     String hoverSlug ="/hovers";
