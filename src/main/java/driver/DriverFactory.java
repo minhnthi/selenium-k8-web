@@ -64,7 +64,7 @@ public class DriverFactory {
             }
             try {
               //  String hub = "http://localhost:4444/wd/hub";
-                String hub = System.getProperty("hub");
+                String hub = System.getProperty("hub").concat("/wd/hub");
                 driver = new RemoteWebDriver(new URL(hub), desiredCapabilities);
                 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
             } catch (Exception e) {
